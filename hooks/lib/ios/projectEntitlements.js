@@ -55,7 +55,9 @@ function generateEntitlements(context, pluginPreferences) {
               entitlements = {};
           }
 
-          var domainsList = [];
+          var domainsList =
+	      entitlements['com.apple.developer.associated-domains'] || [];
+
           pluginPreferences.hosts.forEach(function(host) {
               var link = 'applinks:' + host.name;
               if (domainsList.indexOf(link) === -1) {
